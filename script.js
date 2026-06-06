@@ -13,17 +13,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const burger = document.getElementById('burger');
   const links  = document.getElementById('navLinks');
+  let backdrop = null;
+
+  const closeMenu = () => {
+    burger && burger.classList.remove('open');
+    links  && links.classList.remove('open');
+    document.body.style.overflow = '';
+    if (backdrop && backdrop.parentNode) {
+      backdrop.parentNode.removeChild(backdrop);
+      backdrop = null;
+    }
+  };
+
   if (burger && links) {
     burger.addEventListener('click', () => {
-      burger.classList.toggle('open');
-      links.classList.toggle('open');
-      document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
+      const isOpen = links.classList.contains('open');
+      if (!isOpen) {
+        burger.classList.add('open');
+        links.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        backdrop = document.createElement('div');
+        backdrop.className = 'nav-backdrop';
+        backdrop.addEventListener('click', closeMenu);
+        document.body.appendChild(backdrop);
+      } else {
+        closeMenu();
+      }
     });
-    links.querySelectorAll('.nl').forEach(l => l.addEventListener('click', () => {
-      burger.classList.remove('open');
-      links.classList.remove('open');
-      document.body.style.overflow = '';
-    }));
+
+    links.querySelectorAll('.nl').forEach(l => {
+      l.addEventListener('click', closeMenu);
+    });
   }
 
   document.querySelectorAll(
