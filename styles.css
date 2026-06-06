@@ -211,7 +211,7 @@ strong { font-weight: 600; color: var(--text-mid); }
 .nav {
   position: sticky;
   top: 0;
-  z-index: 800;
+  z-index: 9000;
   background: rgba(245,240,232,0.97);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -311,7 +311,6 @@ strong { font-weight: 600; color: var(--text-mid); }
 .hero {
   min-height: calc(100vh - 107px);
   position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -1206,7 +1205,7 @@ strong { font-weight: 600; color: var(--text-mid); }
     width: min(300px, 85vw);
     height: 100vh;
     background: var(--white);
-    z-index: 900;
+    z-index: 9100;
     padding: 0;
     overflow-y: auto;
     box-shadow: -8px 0 40px rgba(30,43,58,0.2);
@@ -1256,7 +1255,7 @@ strong { font-weight: 600; color: var(--text-mid); }
   .nav-backdrop {
     position: fixed; inset: 0;
     background: rgba(30,43,58,0.4);
-    z-index: 899;
+    z-index: 9050;
     animation: bd-fade 0.3s ease forwards;
   }
   @keyframes bd-fade { from { opacity: 0; } to { opacity: 1; } }
