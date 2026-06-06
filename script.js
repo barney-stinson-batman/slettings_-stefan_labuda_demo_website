@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         links.classList.add('open');
         document.body.style.overflow = 'hidden';
         backdrop = document.createElement('div');
-        backdrop.className = 'nav-backdrop';
+        backdrop.className = 'nav-backdrop'; backdrop.style.zIndex = '9050';
         backdrop.addEventListener('click', closeMenu);
         document.body.appendChild(backdrop);
       } else {
